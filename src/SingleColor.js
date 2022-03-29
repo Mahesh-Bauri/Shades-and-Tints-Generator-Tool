@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import rgbToHex from "./utils";
 
 const SingleColor = (props) => {
   const { rgb, weight, hex, index } = props;
