@@ -1,13 +1,339 @@
-body {
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+  /* dark shades of primary color*/
+  --clr-primary-1: hsl(205, 86%, 17%);
+  --clr-primary-2: hsl(205, 77%, 27%);
+  --clr-primary-3: hsl(205, 72%, 37%);
+  --clr-primary-4: hsl(205, 63%, 48%);
+  /* primary/main color */
+  --clr-primary-5: hsl(205, 78%, 60%);
+  /* lighter shades of primary color */
+  --clr-primary-6: hsl(205, 89%, 70%);
+  --clr-primary-7: hsl(205, 90%, 76%);
+  --clr-primary-8: hsl(205, 86%, 81%);
+  --clr-primary-9: hsl(205, 90%, 88%);
+  --clr-primary-10: hsl(205, 100%, 96%);
+  /* darkest grey - used for headings */
+  --clr-grey-1: hsl(209, 61%, 16%);
+  --clr-grey-2: hsl(211, 39%, 23%);
+  --clr-grey-3: hsl(209, 34%, 30%);
+  --clr-grey-4: hsl(209, 28%, 39%);
+  /* grey used for paragraphs */
+  --clr-grey-5: hsl(210, 22%, 49%);
+  --clr-grey-6: hsl(209, 23%, 60%);
+  --clr-grey-7: hsl(211, 27%, 70%);
+  --clr-grey-8: hsl(210, 31%, 80%);
+  --clr-grey-9: hsl(212, 33%, 89%);
+  --clr-grey-10: hsl(210, 36%, 96%);
+  --clr-white: rgb(235, 235, 235);
+  --clr-red-dark: hsl(360, 67%, 44%);
+  --clr-red-light: hsl(360, 71%, 66%);
+  --clr-green-dark: hsl(125, 67%, 44%);
+  --clr-green-light: hsl(125, 71%, 66%);
+  --clr-black: #222;
+  --transition: all 0.3s linear;
+  --spacing: 0.1rem;
+  --radius: 0.25rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --fixed-width: 620px;
+}
+/*
+=============== 
+Global Styles
+===============
+*/
+
+*,
+::after,
+::before {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: var(--clr-grey-10);
+  color: var(--clr-grey-1);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+p {
+  margin-bottom: 1.25rem;
+  color: var(--clr-grey-5);
+}
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+/*  global classes */
+
+/* section */
+.section {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: var(--max-width);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media screen and (min-width: 992px) {
+  .section {
+    width: 95vw;
+  }
+}
+
+/*
+=============== 
+Color Generator
+===============
+*/
+
+.container {
+  margin: 0.3rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  padding-left: 2rem;
+}
+.container h3 {
+  margin-bottom: 0;
+  margin-right: 2rem;
+}
+
+input {
+  border-color: transparent;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  letter-spacing: 1.1px;
+}
+.btn {
+  background: var(--clr-primary-5);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-color: transparent;
+  border-radius: var(--radius);
+  letter-spacing: 1.1px;
+  text-transform: capitalize;
+  color: white;
+  cursor: pointer;
+}
+.btn {
+  margin-left: 0.8rem;
+}
+
+.btn:active {
+  background: var(--clr-white);
+  color: var(--clr-primary-5);
+}
+
+@media screen and (max-width: 576px) {
+  .container h3 {
+    font-size: 1rem;
+  }
+  input,
+  .btn {
+    font-size: 0.85rem;
+  }
+}
+input.error {
+  border: 2px solid var(--clr-red-dark);
+}
+.colors {
+  margin: 0.3rem;
+  min-height: calc(100vh - 100px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(223.33px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(90px, 1fr));
+}
+.color {
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  text-transform: none;
+}
+
+.color:hover {
+  transform: scale(1.03);
+  transition-duration: 0.2s;
+}
+
+.percent-value {
+  font-size: 0.675rem;
+  margin-bottom: 0;
+  /* color: var(--clr-grey-1); */
+  font-weight: 400;
+  color: #575757;
+}
+
+.love {
+  color: rgb(43, 43, 43);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  padding-top: 0.5rem;
+}
+.love span {
+  color: red;
+}
+.color-value {
+  color: rgb(19, 19, 19);
+  margin-bottom: 0;
+  font-weight: 500;
+  letter-spacing: 1.1px;
+}
+.color-light .color-value {
+  color: var(--clr-white);
+}
+.color-light .percent-value {
+  color: var(--clr-white);
+}
+
+.alert {
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+.--border {
+  border: 2px solid rgb(70, 70, 70);
+  box-shadow: inset 0 0 0 2px rgb(255 255 255 / 50%);
+  flex-flow: column-reverse;
+}
+
+.center {
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.color-picker {
+  height: 40px;
+  border-color: transparent;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border-radius: var(--radius);
+}
+
+.picker {
+  font-size: 1.5rem;
+}
+
+.inp-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inp-form label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.7rem;
+}
+
+input[type="color"] {
+  -webkit-appearance: none;
+  border: 2px dotted rgba(14, 14, 14, 0.7);
+  padding: 0;
+  height: 30px;
+  width: 30px;
+  border-radius: 48%;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 20px;
+}
+
+input[type="color"]:hover {
+  cursor: pointer;
+}
+.inp-form label:hover {
+  cursor: pointer;
+  color: rgb(82, 123, 255);
+}
+
+.inp-c {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1.5rem;
+}
+
+@media screen and (max-width: 596px) {
+  .container {
+    height: 8rem;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0;
+  }
+
+  .container h3 {
+    margin-right: 0;
+  }
+
+  .inp-c {
+    margin: 0.6rem;
+  }
+
+  .btn {
+    margin: 0;
+  }
 }
